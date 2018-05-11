@@ -13,13 +13,17 @@ class AddForm extends Component {
 
   onInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
-    console.log(this.state);
   };
 
-  render() {
+
+  onSubmitBook = ()=>{
     const newBook = this.state;
+    this.props.addNewBook(newBook)
+  }
+
+  render() {
     return (
-      <form className="add-form">
+      <div className="add-form">
         <h2>Добавление книги</h2>
         <label>
           <p>Наименование</p>
@@ -58,15 +62,12 @@ class AddForm extends Component {
           />
         </label>
         <div className="add-form__btns">
-          <button
-            className="save"
-            onClick={newBook => this.props.addNewBook(this.state)}
-          >
-            Сохранить
+          <button className="save" onClick={this.onSubmitBook}>Сохранить</button>
+          <button className="cencel">
+            Отменить
           </button>
-          <button className="cencel" onClick={this.props.addBookHandler}>Отменить</button>
         </div>
-      </form>
+      </div>
     );
   }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import EditForm from './EditForm'
+//import EditForm from './EditForm'
 
  const Book = ({book, id, deleteBook}) => {
   return (
@@ -14,7 +14,7 @@ import EditForm from './EditForm'
       </div>
       <div className="book__btn">
         <button className="book__btn_edit">Редактировать</button>
-        <button className="book__btn_delete" onClick={i=>deleteBook(i)}>Удалить</button>
+        <button className="book__btn_delete" onClick={id=>deleteBook(id)}>Удалить</button>
       </div>
     </div>
   )

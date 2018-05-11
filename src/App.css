@@ -82,7 +82,10 @@ button{
 
 .book__img {
   margin-right: 20px;
-  flex: 0 0 content;
+  flex: 0 0 100px;
+}
+.book__img img{
+  width: 100%;
 }
 
 /*ADD FORM*/
