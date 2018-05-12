@@ -21,7 +21,8 @@ class App extends Component {
           img: "http://placehold.it/100x150",
         },
       ],
-      showList: true,
+      showAddForm: false,
+      
     };
   }
 
@@ -31,15 +32,21 @@ class App extends Component {
     console.log(i)
   };
 
-  addBookHandler = () => {
+  addFormHandler = () => {
     this.setState({
-      showList: false,
-    });
-    console.log('Hi')
+      showForm: !this.state.showForm
+    })
+
   };
+  
 
   addNewBook = (newBook)=>{
     this.setState({bookList: this.state.bookList.concat(newBook)});
+    console.log(this.state.bookList);
+  }
+  editBook = (editedBook, id)=>{
+    this.state.bookList.splice(id, 1, editedBook);
+    this.setState({bookList: this.state.bookList});
     console.log(this.state.bookList);
   }
 
@@ -48,17 +55,18 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Книжная полка</h1>
-        <button className="addBtn" onClick={this.addBookHandler}>
+        <button className="addBtn" onClick={this.addFormHandler}>
           Добавить книгу
         </button>
           <div className="booklist">
             {this.state.bookList.map((book, i) => {
               return (
-                <Book key={i} book={book} id={i} deleteBook={this.deleteBook.bind(this, i)} />
+                <Book key={i} book={book} id={i} deleteBook={this.deleteBook.bind(this, i)} editBook={this.editBook}/>
               );
             })}
           </div>
-          <AddForm addNewBook={this.addNewBook}/>
+          {this.state.showForm && <AddForm addNewBook={this.addNewBook} addFormHandler={this.addFormHandler} />}
+          
 
       </div>
     );

@@ -1,22 +1,43 @@
-import React from 'react';
-//import EditForm from './EditForm'
+import React, { Component } from "react";
+import EditForm from "./EditForm";
 
- const Book = ({book, id, deleteBook}) => {
-  return (
-    <div className="book">
-      <div className="book__img">
-        <img src={book.img} alt=""/>
+class Book extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showEditForm: false,
+    }
+  }
+
+  editFormHandler = () => {
+    this.setState({
+      showEditForm: !this.state.showEditForm
+    })
+
+  };
+  render() {
+    const { book, id, deleteBook } = this.props;
+    return (
+      <div>
+        <div className="book">
+          <div className="book__img">
+            <img src={book.img} alt="" />
+          </div>
+          <div className="book__about">
+            <p className="book_title">{book.title}</p>
+            <p className="book_author">{book.author}</p>
+            <p className="book_year">{book.year}</p>
+          </div>
+          <div className="book__btn">
+            <button className="book__btn_edit" onClick={this.editFormHandler}>Редактировать</button>
+            <button className="book__btn_delete" onClick={id => deleteBook(id)}>
+              Удалить
+            </button>
+          </div>
+        </div>
+        {this.state.showEditForm && <EditForm book={book} id={id} editFormHandler={this.editFormHandler} editBook={this.props.editBook}/>}
       </div>
-      <div className="book__about">
-        <p className="book_title">{book.title}</p>
-        <p className="book_author">{book.author}</p>
-        <p className="book_year">{book.year}</p>
-      </div>
-      <div className="book__btn">
-        <button className="book__btn_edit">Редактировать</button>
-        <button className="book__btn_delete" onClick={id=>deleteBook(id)}>Удалить</button>
-      </div>
-    </div>
-  )
+    );
+  }
 }
 export default Book;

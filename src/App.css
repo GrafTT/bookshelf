@@ -4,6 +4,7 @@
   margin: 30px auto;
   padding: 20px 40px 20px 40px;
   background-color: #f0f0f0;
+  position: relative;
 }
 button{
   border: none;
@@ -24,6 +25,7 @@ button{
 
 .booklist {
   margin-top: 20px;
+  
 }
 
 /*BOOK ROW*/
@@ -89,6 +91,10 @@ button{
 }
 
 /*ADD FORM*/
+.form_wrap{
+  position: absolute;
+  top: 147px;left: 180px;
+}
 .add-form {
   display: flex;
   flex-direction: column;

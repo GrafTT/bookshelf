@@ -1,9 +1,30 @@
 import React, { Component } from "react";
 
 class EditForm extends Component {
+  constructor(props){
+    super(props);
+      this.state = {
+        title: this.props.book.title,
+        author: this.props.book.author,
+        year: this.props.book.year,
+        img: this.props.book.img,
+      }
+    
+  }
+
+  onInputChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  onSubmitBook = () => {
+    const editedBook = this.state;
+    this.props.editBook(editedBook, this.props.id);
+    this.props.editFormHandler();
+  };
+
   render() {
     return (
-      <form className="add-form">
+      <div className="add-form">
         <h2>Редактирование книги</h2>
         <label>
           Наименование
@@ -11,7 +32,8 @@ class EditForm extends Component {
             type="text"
             name="title"
             className="add-form__title"
-            value="title"
+            defaultValue={this.props.book.title}
+            onChange={this.onInputChange}
           />
         </label>
         <label>
@@ -20,7 +42,8 @@ class EditForm extends Component {
             type="text"
             name="author"
             className="add-form__author"
-            value="author"
+            defaultValue={this.props.book.author}
+            onChange={this.onInputChange}
           />
         </label>
         <label>
@@ -29,25 +52,27 @@ class EditForm extends Component {
             type="text"
             name="year"
             className="add-form__year"
-            value="year"
+            defaultValue={this.props.book.year}
+            onChange={this.onInputChange}
           />
         </label>
         <label>
           Изображение
           <input
             type="text"
-            name="image"
+            name="img"
             className="add-form__image"
-            value="image"
+            defaultValue={this.props.book.img}
+            onChange={this.onInputChange}
           />
         </label>
         <div className="add-form__btns">
-          <button type="submit" className="save">
+          <button type="submit" className="save" onClick={this.onSubmitBook}>
             Сохранить
           </button>
-          <button className="cencel">Отменить</button>
+          <button className="cencel" onClick={this.props.editFormHandler}>Отменить</button>
         </div>
-      </form>
+      </div>
     );
   }
 }
