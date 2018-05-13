@@ -14,7 +14,7 @@ class Book extends Component {
       showEditForm: !this.state.showEditForm,
     });
   };
-  
+
   render() {
     const { book, id, deleteBook } = this.props;
     return (
@@ -34,7 +34,7 @@ class Book extends Component {
             <div className="book__about">
               <p className="book_title">{book.title}</p>
               <p className="book_author">{book.author}</p>
-              <p className="book_year">{book.year}</p>
+              <p className="book_year">{book.year} г.</p>
             </div>
             <div className="book__btn">
               <button className="book__btn_edit" onClick={this.editFormHandler}>

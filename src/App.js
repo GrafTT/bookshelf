@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import Book from "./components/Book";
 import AddForm from "./components/AddForm";
 import "./App.css";
@@ -12,13 +11,13 @@ class App extends Component {
         {
           title: "JavaScript и jQuery",
           author: "Дэвид Сойер Макфарланд",
-          year: "2016 г.",
+          year: "2016",
           img: "http://placehold.it/100x150",
         },
         {
           title: "Изучаем программирование на JavaScript",
           author: "Эрик Фримен, Элизабет Робсон",
-          year: "2017 г.",
+          year: "2017",
           img: "http://placehold.it/100x150",
         },
       ],
