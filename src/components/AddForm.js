@@ -17,6 +17,9 @@ class AddForm extends Component {
 
   onSubmitBook = () => {
     const newBook = this.state;
+    if (Number(newBook.year) >= 2017 || isNaN(Number(newBook.year))) {
+      newBook.year = "";
+    }
     this.props.addNewBook(newBook);
     this.props.addFormHandler();
   };
@@ -66,7 +69,9 @@ class AddForm extends Component {
             <button className="save" onClick={this.onSubmitBook}>
               Сохранить
             </button>
-            <button className="cencel" onClick={this.props.addFormHandler}>Отменить</button>
+            <button className="cencel" onClick={this.props.addFormHandler}>
+              Отменить
+            </button>
           </div>
         </div>
       </div>

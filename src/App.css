@@ -2,7 +2,7 @@
   max-width: 800px;
   min-width: 350px;
   margin: 30px auto;
-  padding: 20px 40px 20px 40px;
+  padding: 20px 40px 40px 40px;
   background-color: #f0f0f0;
   position: relative;
 }
@@ -25,7 +25,6 @@ button {
 .save:hover {
   background-color: rgb(97, 97, 97);
 }
-
 .booklist {
   margin-top: 20px;
 }
@@ -60,7 +59,6 @@ button {
 .book__about p:first-child {
   font-size: 25px;
 }
-
 .book__btn {
   display: flex;
   flex-direction: column;
@@ -83,7 +81,6 @@ button {
   background-color: #5e5e5e;
   color: #ffffff;
 }
-
 .book__img {
   margin-right: 20px;
   flex: 0 0 100px;
@@ -92,11 +89,7 @@ button {
   width: 100%;
 }
 
-/*ADD FORM*/
-/* .form_wrap{
-  position: absolute;
-  top: 147px;left: 180px;
-} */
+/*ADD FORM and EDIT FORM*/
 .add-form {
   display: flex;
   flex-direction: column;
@@ -113,12 +106,18 @@ button {
   margin-bottom: 30px;
   font-size: 16px;
 }
+.add-form__year{
+  width: 40px !important;
+}
+label{
+  display: flex;
+  flex-direction: column;
+}
 .add-form p {
   margin: 0;
   padding: 0;
   font-size: 14px;
 }
-
 .save,
 .cencel {
   width: 150px;

@@ -17,6 +17,9 @@ class EditForm extends Component {
 
   onSubmitBook = () => {
     const editedBook = this.state;
+    if (Number(editedBook.year) >= 2017 || isNaN(Number(editedBook.year))) {
+      editedBook.year = "";
+    }
     this.props.editBook(editedBook, this.props.id);
     this.props.editFormHandler();
   };
@@ -31,7 +34,7 @@ class EditForm extends Component {
   };
 
   render() {
-    const {title, author, year, img} = this.state;
+    const { title, author, year, img } = this.state;
     return (
       <div className="add-form">
         <h2>Редактирование книги</h2>
