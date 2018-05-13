@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import Book from "./components/Book";
 import AddForm from "./components/AddForm";
 import "./App.css";
@@ -22,34 +23,28 @@ class App extends Component {
         },
       ],
       showAddForm: false,
-      
     };
   }
 
-  deleteBook (i) {
+  deleteBook(i) {
     this.state.bookList.splice(i, 1);
     this.setState({ bookList: this.state.bookList });
-    console.log(i)
-  };
+  }
 
   addFormHandler = () => {
     this.setState({
-      showForm: !this.state.showForm
-    })
-
+      showForm: !this.state.showForm,
+    });
   };
-  
 
-  addNewBook = (newBook)=>{
-    this.setState({bookList: this.state.bookList.concat(newBook)});
-    console.log(this.state.bookList);
-  }
-  editBook = (editedBook, id)=>{
+  addNewBook = newBook => {
+    this.setState({ bookList: this.state.bookList.concat(newBook) });
+  };
+
+  editBook = (editedBook, id) => {
     this.state.bookList.splice(id, 1, editedBook);
-    this.setState({bookList: this.state.bookList});
-    console.log(this.state.bookList);
-  }
-
+    this.setState({ bookList: this.state.bookList });
+  };
 
   render() {
     return (
@@ -58,16 +53,27 @@ class App extends Component {
         <button className="addBtn" onClick={this.addFormHandler}>
           Добавить книгу
         </button>
+
+        {this.state.showForm ? (
+          <AddForm
+            addNewBook={this.addNewBook}
+            addFormHandler={this.addFormHandler}
+          />
+        ) : (
           <div className="booklist">
             {this.state.bookList.map((book, i) => {
               return (
-                <Book key={i} book={book} id={i} deleteBook={this.deleteBook.bind(this, i)} editBook={this.editBook}/>
+                <Book
+                  key={i}
+                  book={book}
+                  id={i}
+                  deleteBook={this.deleteBook.bind(this, i)}
+                  editBook={this.editBook}
+                />
               );
             })}
           </div>
-          {this.state.showForm && <AddForm addNewBook={this.addNewBook} addFormHandler={this.addFormHandler} />}
-          
-
+        )}
       </div>
     );
   }

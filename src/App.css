@@ -6,10 +6,12 @@
   background-color: #f0f0f0;
   position: relative;
 }
-button{
+button {
   border: none;
 }
-.addBtn, .save, .cencel {
+.addBtn,
+.save,
+.cencel {
   width: 230px;
   padding: 15px;
   background-color: rgb(126, 126, 126);
@@ -19,13 +21,13 @@ button{
   transition: all ease 0.5s;
   cursor: pointer;
 }
-.addBtn:hover, .save:hover {
+.addBtn:hover,
+.save:hover {
   background-color: rgb(97, 97, 97);
 }
 
 .booklist {
   margin-top: 20px;
-  
 }
 
 /*BOOK ROW*/
@@ -77,7 +79,7 @@ button{
   transition: all ease 0.5s;
 }
 .book__btn_edit:hover,
-.book__btn_delete:hover{
+.book__btn_delete:hover {
   background-color: #5e5e5e;
   color: #ffffff;
 }
@@ -86,15 +88,15 @@ button{
   margin-right: 20px;
   flex: 0 0 100px;
 }
-.book__img img{
+.book__img img {
   width: 100%;
 }
 
 /*ADD FORM*/
-.form_wrap{
+/* .form_wrap{
   position: absolute;
   top: 147px;left: 180px;
-}
+} */
 .add-form {
   display: flex;
   flex-direction: column;
@@ -102,9 +104,8 @@ button{
   background-color: #fff;
   padding: 30px 70px 20px 30px;
   margin-top: 20px;
-  
 }
-.add-form input{
+.add-form input {
   width: 100%;
   height: 25px;
   padding: 5px 10px;
@@ -112,23 +113,22 @@ button{
   margin-bottom: 30px;
   font-size: 16px;
 }
-.add-form p{
+.add-form p {
   margin: 0;
   padding: 0;
   font-size: 14px;
 }
 
-.save, .cencel{
+.save,
+.cencel {
   width: 150px;
   margin-right: 15px;
-
 }
-.cencel{
+.cencel {
   background-color: rgb(226, 226, 226);
   color: #3d3d3d;
 }
-.cencel:hover{
+.cencel:hover {
   background-color: rgb(124, 124, 124);
   color: #f0f0f0;
 }
-
