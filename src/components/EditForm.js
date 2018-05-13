@@ -1,15 +1,14 @@
 import React, { Component } from "react";
 
 class EditForm extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-      this.state = {
-        title: this.props.book.title,
-        author: this.props.book.author,
-        year: this.props.book.year,
-        img: this.props.book.img,
-      }
-    
+    this.state = {
+      title: this.props.book.title,
+      author: this.props.book.author,
+      year: this.props.book.year,
+      img: this.props.book.img,
+    };
   }
 
   onInputChange = e => {
@@ -22,7 +21,17 @@ class EditForm extends Component {
     this.props.editFormHandler();
   };
 
+  onCencelInput = () => {
+    this.setState({
+      title: this.props.book.title,
+      author: this.props.book.author,
+      year: this.props.book.year,
+      img: this.props.book.img,
+    });
+  };
+
   render() {
+    const {title, author, year, img} = this.state;
     return (
       <div className="add-form">
         <h2>Редактирование книги</h2>
@@ -32,7 +41,7 @@ class EditForm extends Component {
             type="text"
             name="title"
             className="add-form__title"
-            defaultValue={this.props.book.title}
+            value={title}
             onChange={this.onInputChange}
           />
         </label>
@@ -42,7 +51,7 @@ class EditForm extends Component {
             type="text"
             name="author"
             className="add-form__author"
-            defaultValue={this.props.book.author}
+            value={author}
             onChange={this.onInputChange}
           />
         </label>
@@ -52,7 +61,7 @@ class EditForm extends Component {
             type="text"
             name="year"
             className="add-form__year"
-            defaultValue={this.props.book.year}
+            value={year}
             onChange={this.onInputChange}
           />
         </label>
@@ -62,7 +71,7 @@ class EditForm extends Component {
             type="text"
             name="img"
             className="add-form__image"
-            defaultValue={this.props.book.img}
+            value={img}
             onChange={this.onInputChange}
           />
         </label>
@@ -70,7 +79,9 @@ class EditForm extends Component {
           <button type="submit" className="save" onClick={this.onSubmitBook}>
             Сохранить
           </button>
-          <button className="cencel" onClick={this.props.editFormHandler}>Отменить</button>
+          <button className="cencel" onClick={this.onCencelInput}>
+            Отменить
+          </button>
         </div>
       </div>
     );
