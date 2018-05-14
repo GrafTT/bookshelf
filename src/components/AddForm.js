@@ -30,7 +30,7 @@ class AddForm extends Component {
         <div className="add-form">
           <h2>Добавление книги</h2>
           <label>
-            <p>Наименование</p>
+            Наименование
             <input
               type="text"
               name="title"
@@ -39,7 +39,7 @@ class AddForm extends Component {
             />
           </label>
           <label>
-            <p>Автор</p>
+            Автор
             <input
               type="text"
               name="author"
@@ -48,7 +48,7 @@ class AddForm extends Component {
             />
           </label>
           <label>
-            <p>Год выпуска</p>
+            Год выпуска
             <input
               type="text"
               name="year"
@@ -57,7 +57,7 @@ class AddForm extends Component {
             />
           </label>
           <label>
-            <p>Изображение</p>
+            Изображение
             <input
               type="text"
               name="img"
